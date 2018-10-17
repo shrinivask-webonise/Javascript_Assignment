@@ -1,0 +1,66 @@
+<html>
+<head>
+
+	<script type="text/javascript">
+	var username;
+	var email;
+	var user_record=new Array();
+
+	function save_records(){	
+		
+
+		try{
+			username=document.getElementById("username").value;
+			email=document.getElementById("email").value;
+
+			if (!isNameValid(username)){
+				throw("Invalid Name");
+			}
+
+			if (!isEmailAddress(email)){
+				throw("Invalid Email");
+			}
+
+			var dat=new Date();
+			var user = { 'username': username, 'email': email, 'timestamp': dat };
+			user_record.push(user);
+			// Pass the object into local-storage
+			localStorage.setItem('user_record', JSON.stringify(user_record));
+	
+			// fetch the object from storage
+			var fetched_object = localStorage.getItem('user_record');
+	
+			console.log('All Data: ', JSON.parse(fetched_object));
+		}
+		catch(e){
+			alert(e);
+		}
+	}
+
+	function isNameValid(name) {
+	   	var format = /^[0-9a-zA-Z ]*$/;
+	   	return format.test(name);
+	}
+
+	function isEmailAddress(email) {
+	   	var format =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	   	return format.test(email);
+	}
+
+	function display(){
+	    	var fetched_object = localStorage.getItem('user_record');
+		    console.log('All Data: ', JSON.parse(fetched_object));
+	}
+
+	</script>
+</head>
+<body>
+
+<form>
+	<input type="text" placeholder="Enter your name" id="username"/><br>
+	<input type="text" placeholder="Enter your email" id="email"/><br>
+	<button type="button" onclick="save_records()">Add Record</button>
+	<button type="button" onclick="display()">Display All Records</button>
+</form>
+</body>
+</html>
