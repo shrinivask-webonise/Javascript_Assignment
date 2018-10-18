@@ -1,0 +1,38 @@
+<html>
+  <head>
+  <script type="text/javascript">
+    function add(){
+      try{
+        var x=parseInt(document.getElementById("txt1").value);
+        if(isNaN(x)) throw "not a number";
+        var y=parseInt(document.getElementById("txt2").value);
+        if(isNaN(x)) throw "not a number";
+        document.write(x+y);
+      }
+      catch(e){
+        document.getElementById("err").innerHTML=""+e;
+      }
+    }
+    function substract(){
+      try{
+        var x=parseInt(document.getElementById("txt1").value);
+        if(isNaN(x)) throw "not a number";
+        var y=parseInt(document.getElementById("txt2").value);
+        if(isNaN(x)) throw "not a number";
+        document.write(x-y);
+      }
+      catch(e){
+      document.getElementById("err").innerHTML=""+e;}
+    }
+  </script>
+  </head>
+  <body>
+    <p id='err'>   </p>
+    <form>
+      <input type='text' id='txt1' ><br>
+      <input type='text' id='txt2'><br>
+      <button type='button' onclick="add()">Addition</button>
+      <br><button type='button' onclick="substract()">Substraction</button>
+    </form>
+  </body>
+</html>
