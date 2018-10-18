@@ -1,10 +1,10 @@
 <html>
-	<head>
+    <head>
 		<script type="text/javascript">
 			var username;
 			var email;
 			var user_record=new Array();
-			function save_records(){	
+			function save_records(){
 				try{
 					username=document.getElementById("username").value;
 					email=document.getElementById("email").value;
@@ -20,7 +20,7 @@
 					// Pass the object into local-storage
 					localStorage.setItem('user_record', JSON.stringify(user_record));
 					// fetch the object from storage
-					var fetched_object = localStorage.getItem('user_record');	
+					var fetched_object = localStorage.getItem('user_record');
 					console.log('All Data: ', JSON.parse(fetched_object));
 				}
 				catch(e){

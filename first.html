@@ -1,34 +1,38 @@
 <html>
 	<head>
-	<script type="text/javascript">
-		function show(){
-			list= new Array();
-			occurrence=new Array(10);
-			numbers=document.getElementById("txt").value;
-			list = numbers.split(',');
-			document.write("List: "+list);
-		  document.write("<br> ");		  
-			console.log(list);
-			var count=1;
-			for(i=0;i<10;i++){
-				occurrence[i]=0;
+		<script type="text/javascript">
+			function show() {
+				var list= new Array();
+				var occurrence=new Array(10);
+				var numbers=document.getElementById("txt").value;
+				var list = numbers.split(',');
+
+				document.write("List: "+list);
+				document.write("<br> ");
+				console.log(list);
+				var count=1;
+
+				for(i=0;i<10;i++) {
+					occurrence[i]=0;
+				}
+
+				for(i=0;i<list.length;i++) {
+					var n = list[i];
+					occurrence[n]=occurrence[n]+1;
+				}
+
+				for(i=0;i<10;i++) {
+					if(occurrence[i] != 0) {
+						document.write(i+":"+occurrence[i]+"<br>");
+					}
+				}
 			}
-			for(i=0;i<list.length;i++){    
-				var n = list[i];
-				occurrence[n]=occurrence[n]+1;
-			}
-			for(i=0;i<10;i++){
-		  	if(occurrence[i] != 0){
-		    	document.write(i+":"+occurrence[i]+"<br>");
-		  	}      
-			}
-		}
-	</script>
+		</script>
 	</head>
 	<body>
 		<form>
 			<input type='text' id='txt'><br>
-      <button type='button' onclick="show()">Submit</button>
+			<button type='button' onclick="show()">Submit</button>
 		</form>
 	</body>
 </html>
