@@ -7,7 +7,7 @@
 			numbers=document.getElementById("txt").value;
 			list = numbers.split(',');
 			document.write("List: "+list);
-		        document.write("<br> ");		  
+		  document.write("<br> ");		  
 			console.log(list);
 			var count=1;
 			for(i=0;i<10;i++){
@@ -17,25 +17,18 @@
 				var n = list[i];
 				occurrence[n]=occurrence[n]+1;
 			}
-
 			for(i=0;i<10;i++){
-		  		if(occurrence[i] != 0){
-		      			document.write(i+":"+occurrence[i]+"<br>");
-		  		}      
+		  	if(occurrence[i] != 0){
+		    	document.write(i+":"+occurrence[i]+"<br>");
+		  	}      
 			}
-
 		}
 	</script>
 	</head>
 	<body>
-
-		
 		<form>
 			<input type='text' id='txt'><br>
-                        <button type='button' onclick="show()">Submit</button>
+      <button type='button' onclick="show()">Submit</button>
 		</form>
-
-
 	</body>
-
 </html>
