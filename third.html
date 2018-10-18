@@ -1,39 +1,39 @@
 <html>
-	<head>
-		<script type="text/javascript">
-			var interval1,interval2,interval3;
-			function show(){
-				document.getElementById("openTab").addEventListener("click", function(){
-					tab1=window.open("https://www.google.com/","_blank");
-					tab2=window.open("https://www.google.com/","_blank");
-					tab3=window.open("https://www.google.com/","_blank");
-					// Callback intervals to close tabs in every 3 seconds
-					interval1=setInterval(function(){
-						interval2=setInterval(function(){
-							interval3=setInterval(function(){
-								tab3.close();
-								clearInterval(interval3);},3000);
-				  		tab2.close();
-				 		clearInterval(interval2);},3000);
-			  		tab1.close();
-					clearInterval(interval1); }, 3000);			
-					}
-				,true);
-				document.getElementById("pauseTab").addEventListener("click", function(){
-					clearInterval(interval1);
-					clearInterval(interval2);			
-					clearInterval(interval3);
-					alert("Closing Tabs Stopped");						
-				 }
-				,true);
-			}				
-			window.onload=show;
-		</script>
-	</head>
-	<body>
-		<form>
-			<button type="button"  id="openTab">Open Multiple Tab</button><br>
-			<button type="button"  id="pauseTab">Stop Tab</button><br>
-		</form>
-	</body>
+  <head>
+    <script type="text/javascript">
+      var interval1,interval2,interval3;
+      function show(){
+        document.getElementById("openTab").addEventListener("click", function(){
+          tab1=window.open("https://www.google.com/","_blank");
+          tab2=window.open("https://www.google.com/","_blank");
+          tab3=window.open("https://www.google.com/","_blank");
+          // Callback intervals to close tabs in every 3 seconds
+          interval1=setInterval(function(){
+            interval2=setInterval(function(){
+              interval3=setInterval(function(){
+                tab3.close();
+                clearInterval(interval3);},3000);
+              tab2.close();
+            clearInterval(interval2);},3000);
+            tab1.close();
+          clearInterval(interval1); }, 3000);
+          }
+        ,true);
+        document.getElementById("pauseTab").addEventListener("click", function(){
+          clearInterval(interval1);
+          clearInterval(interval2);
+          clearInterval(interval3);
+          alert("Closing Tabs Stopped");
+         }
+        ,true);
+      }
+      window.onload=show;
+    </script>
+  </head>
+  <body>
+    <form>
+      <button type="button"  id="openTab">Open Multiple Tab</button><br>
+      <button type="button"  id="pauseTab">Stop Tab</button><br>
+    </form>
+  </body>
 </html>
